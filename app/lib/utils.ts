@@ -67,3 +67,16 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+export function formatReadableDate(dateString: string): string {
+  const date = new Date(dateString);
+
+  // Format the date with only the month, day, and time (without year, weekday, and seconds)
+  return date.toLocaleString('en-US', {
+    month: 'long',  // Full month name (e.g., "December")
+    day: 'numeric', // Day of the month (e.g., "9")
+    hour: '2-digit', // Hour in 2-digit format (e.g., "4")
+    minute: '2-digit', // Minute in 2-digit format (e.g., "19")
+    hour12: true     // 12-hour clock with AM/PM (e.g., "4:19 PM")
+  });
+}
